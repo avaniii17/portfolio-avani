@@ -180,7 +180,7 @@ export function Contact() {
 
           {/* LinkedIn */}
           <motion.a
-            href="https://linkedin.com/in/avani-srivastava"
+            href="https://www.linkedin.com/in/avanisrivastava/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ y: -4, boxShadow: isDark ? `0 8px 30px ${c.accent2}20` : '0 8px 30px rgba(0,0,0,0.08)' }}
