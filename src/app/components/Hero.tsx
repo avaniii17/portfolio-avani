@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowDown, MapPin, Mail } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import avaniPhoto from 'figma:asset/5d26c79f3d2ab845639a302c42ff2dce24fb0b4d.png';
-
+import avaniPhoto from '../../assets/avani-photo.png';
 const roles = ['Product Manager', 'User Researcher', 'Strategic Thinker', 'Problem Solver'];
 
 const stats = [
