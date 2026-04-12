@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { Briefcase, GraduationCap, Calendar } from 'lucide-react';
 
 const sectionVariants = {
@@ -51,7 +52,7 @@ const experiences = [
 
 export function Experience() {
   const { c, isDark } = useTheme();
-
+  const isMobile = useIsMobile();
   const accentColors = [c.accent1, c.accent2, c.accent3];
 
   return (
@@ -59,7 +60,7 @@ export function Experience() {
       id="experience"
       style={{
         background: c.bg,
-        padding: '6rem 2.5rem',
+        padding: isMobile ? '4rem 1.25rem' : '6rem 2.5rem',
         transition: 'background 0.4s ease',
       }}
     >
@@ -128,7 +129,7 @@ export function Experience() {
             }}
           />
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', paddingLeft: '2.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', paddingLeft: isMobile ? '1.75rem' : '2.5rem' }}>
             {experiences.map((exp, index) => {
               const accent = accentColors[exp.accentIndex];
               return (
@@ -144,7 +145,7 @@ export function Experience() {
                   <div
                     style={{
                       position: 'absolute',
-                      left: '-2.5rem',
+                      left: isMobile ? '-1.75rem' : '-2.5rem',
                       top: '1rem',
                       transform: 'translateX(-50%)',
                       width: '10px',
@@ -162,7 +163,7 @@ export function Experience() {
                   <motion.div
                     whileHover={{ x: 4 }}
                     style={{
-                      padding: '1.75rem 2rem',
+                      padding: isMobile ? '1.25rem 1.25rem' : '1.75rem 2rem',
                       borderRadius: '16px',
                       background: isDark ? c.bgCard : c.bgSurface,
                       border: `1px solid ${c.border}`,
@@ -178,7 +179,7 @@ export function Experience() {
                         justifyContent: 'space-between',
                         alignItems: 'flex-start',
                         flexWrap: 'wrap',
-                        gap: '0.75rem',
+                        gap: '0.5rem',
                         marginBottom: '1rem',
                       }}
                     >
@@ -331,7 +332,7 @@ export function Experience() {
           <motion.div
             whileHover={{ x: 4 }}
             style={{
-              padding: '1.75rem 2rem',
+              padding: isMobile ? '1.25rem' : '1.75rem 2rem',
               borderRadius: '16px',
               background: isDark ? c.bgCard : c.bgSurface,
               border: `1px solid ${c.border}`,

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { Mail, Linkedin, ExternalLink, ArrowUpRight } from 'lucide-react';
 
 const sectionVariants = {
@@ -9,13 +10,14 @@ const sectionVariants = {
 
 export function Contact() {
   const { c, isDark } = useTheme();
+  const isMobile = useIsMobile();
 
   return (
     <section
       id="contact"
       style={{
         background: c.bg,
-        padding: '6rem 2.5rem 4rem',
+        padding: isMobile ? '4rem 1.25rem 3rem' : '6rem 2.5rem 4rem',
         position: 'relative',
         overflow: 'hidden',
         transition: 'background 0.4s ease',
@@ -111,7 +113,7 @@ export function Contact() {
           viewport={{ once: true, margin: '-60px' }}
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '1.25rem',
             marginBottom: '4rem',
           }}
@@ -253,10 +255,11 @@ export function Contact() {
             paddingTop: '2rem',
             borderTop: `1px solid ${c.border}`,
             display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
             justifyContent: 'space-between',
-            alignItems: 'center',
+            alignItems: isMobile ? 'flex-start' : 'center',
             flexWrap: 'wrap',
-            gap: '1rem',
+            gap: '0.5rem',
             transition: 'border-color 0.4s ease',
           }}
         >

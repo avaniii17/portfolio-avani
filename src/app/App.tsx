@@ -1,4 +1,5 @@
 import '../styles/fonts.css';
+import { Routes, Route } from 'react-router';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
@@ -7,6 +8,7 @@ import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { ThemeToggle } from './components/ThemeToggle';
+import { CaseStudy } from './components/CaseStudy';
 
 function SectionDivider({ flip = false }: { flip?: boolean }) {
   const { c, isDark } = useTheme();
@@ -23,9 +25,8 @@ function SectionDivider({ flip = false }: { flip?: boolean }) {
   );
 }
 
-function PortfolioInner() {
+function Portfolio() {
   const { c } = useTheme();
-
   return (
     <div
       style={{
@@ -51,10 +52,24 @@ function PortfolioInner() {
   );
 }
 
+function CaseStudyPage() {
+  const { c } = useTheme();
+  return (
+    <div style={{ background: c.bg, minHeight: '100vh', transition: 'background 0.4s ease' }}>
+      <Nav />
+      <ThemeToggle />
+      <CaseStudy />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
-      <PortfolioInner />
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/case-study/:id" element={<CaseStudyPage />} />
+      </Routes>
     </ThemeProvider>
   );
 }

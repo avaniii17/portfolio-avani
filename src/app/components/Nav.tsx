@@ -1,5 +1,8 @@
 import { motion } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
+import { useLocation, useNavigate } from 'react-router';
+import { ArrowLeft } from 'lucide-react';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 const navLinks = [
   { label: 'About', id: 'about' },
@@ -11,6 +14,10 @@ const navLinks = [
 
 export function Nav() {
   const { c, isDark } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const isCaseStudy = location.pathname.startsWith('/case-study');
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -35,7 +42,7 @@ export function Nav() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 2.5rem',
+        padding: isMobile ? '0 1.25rem' : '0 2.5rem',
         transition: 'background 0.4s ease, border-color 0.4s ease',
       }}
     >
@@ -83,10 +90,36 @@ export function Nav() {
       </button>
 
       {/* Nav links */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-        {navLinks.map((link) => (
-          <NavLink key={link.id} label={link.label} onClick={() => scrollTo(link.id)} />
-        ))}
+      <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '1rem' : '2.5rem' }}>
+        {isCaseStudy ? (
+          <motion.button
+            onClick={() => navigate('/')}
+            whileHover={{ x: -4 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              background: 'none',
+              border: `1px solid ${c.border}`,
+              borderRadius: '8px',
+              padding: '6px 14px',
+              cursor: 'pointer',
+              fontFamily: 'Space Mono',
+              fontSize: '0.65rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              color: isDark ? c.accent1 : c.accent2,
+              transition: 'border-color 0.3s ease, color 0.3s ease',
+            }}
+          >
+            <ArrowLeft size={12} />
+            {isMobile ? '' : 'Back'}
+          </motion.button>
+        ) : !isMobile ? (
+          navLinks.map((link) => (
+            <NavLink key={link.id} label={link.label} onClick={() => scrollTo(link.id)} />
+          ))
+        ) : null}
       </div>
     </motion.nav>
   );

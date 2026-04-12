@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowDown, MapPin, Mail } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 import avaniPhoto from '../../assets/avani-photo.png';
 const roles = ['Product Manager', 'User Researcher', 'Strategic Thinker', 'Problem Solver'];
 
@@ -14,6 +15,7 @@ const stats = [
 
 export function Hero() {
   const { c, isDark } = useTheme();
+  const isMobile = useIsMobile();
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export function Hero() {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: '100px 2.5rem 5rem',
+        padding: isMobile ? '90px 1.25rem 4rem' : '100px 2.5rem 5rem',
         position: 'relative',
         overflow: 'hidden',
         transition: 'background 0.4s ease',
@@ -78,19 +80,19 @@ export function Hero() {
       <div
         style={{
           display: 'flex',
-          alignItems: 'center',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'flex-start' : 'center',
           justifyContent: 'space-between',
-          gap: '3rem',
+          gap: isMobile ? '2.5rem' : '3rem',
           maxWidth: '1100px',
           margin: '0 auto',
           width: '100%',
           position: 'relative',
           zIndex: 1,
-          flexWrap: 'wrap',
         }}
       >
         {/* ── LEFT COLUMN: Text Content ── */}
-        <div style={{ flex: '1 1 420px', minWidth: 0 }}>
+        <div style={{ flex: isMobile ? '1 1 100%' : '1 1 420px', minWidth: 0, order: isMobile ? 2 : 1 }}>
           {/* Location badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -294,9 +296,9 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.55 }}
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
               gap: '0.75rem',
-              maxWidth: '440px',
+              maxWidth: isMobile ? '100%' : '440px',
             }}
           >
             {stats.map((stat, i) => (
@@ -346,13 +348,15 @@ export function Hero() {
 
         {/* ── RIGHT COLUMN: Photo ── */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, x: isMobile ? 0 : 50, y: isMobile ? -20 : 0 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] as any }}
           style={{
             flex: '0 0 auto',
+            order: isMobile ? 1 : 2,
             position: 'relative',
-            width: 'clamp(260px, 30vw, 380px)',
+            width: isMobile ? 'clamp(180px, 55vw, 260px)' : 'clamp(260px, 30vw, 380px)',
+            alignSelf: isMobile ? 'center' : 'auto',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -523,7 +527,8 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Floating accent badge */}
+          {/* Floating accent badge — hidden on mobile to avoid overflow */}
+          {!isMobile && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -542,32 +547,13 @@ export function Hero() {
               transition: 'background 0.4s ease, border-color 0.4s ease',
             }}
           >
-            <div
-              style={{
-                fontFamily: 'Space Grotesk',
-                fontSize: '1rem',
-                fontWeight: 700,
-                color: isDark ? c.accent2 : '#7C3AED',
-                lineHeight: 1,
-                marginBottom: '3px',
-              }}
-            >
-              NIT
-            </div>
-            <div
-              style={{
-                fontFamily: 'Space Mono',
-                fontSize: '0.55rem',
-                letterSpacing: '0.06em',
-                color: c.textMuted,
-                textTransform: 'uppercase',
-              }}
-            >
-              Hamirpur
-            </div>
+            <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent2 : '#7C3AED', lineHeight: 1, marginBottom: '3px' }}>NIT</div>
+            <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Hamirpur</div>
           </motion.div>
+          )}
 
-          {/* Floating accent badge 2 */}
+          {/* Floating accent badge 2 — hidden on mobile */}
+          {!isMobile && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -586,30 +572,10 @@ export function Hero() {
               transition: 'background 0.4s ease, border-color 0.4s ease',
             }}
           >
-            <div
-              style={{
-                fontFamily: 'Space Grotesk',
-                fontSize: '1rem',
-                fontWeight: 700,
-                color: isDark ? c.accent3 : '#059669',
-                lineHeight: 1,
-                marginBottom: '3px',
-              }}
-            >
-              '26
-            </div>
-            <div
-              style={{
-                fontFamily: 'Space Mono',
-                fontSize: '0.55rem',
-                letterSpacing: '0.06em',
-                color: c.textMuted,
-                textTransform: 'uppercase',
-              }}
-            >
-              Grad
-            </div>
+            <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent3 : '#059669', lineHeight: 1, marginBottom: '3px' }}>'26</div>
+            <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Grad</div>
           </motion.div>
+          )}
         </motion.div>
       </div>
 

@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useTheme } from '../context/ThemeContext';
+import { useIsMobile } from '../hooks/useIsMobile';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -74,7 +75,7 @@ const interests = [
 
 export function Skills() {
   const { c, isDark } = useTheme();
-
+  const isMobile = useIsMobile();
   const accentColors = [c.accent1, c.accent2, c.accent3, c.accent4];
 
   return (
@@ -82,7 +83,7 @@ export function Skills() {
       id="skills"
       style={{
         background: isDark ? c.bgSurface : c.bg,
-        padding: '6rem 2.5rem',
+        padding: isMobile ? '4rem 1.25rem' : '6rem 2.5rem',
         transition: 'background 0.4s ease',
       }}
     >
@@ -138,8 +139,8 @@ export function Skills() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '1.5rem',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.25rem',
             marginBottom: '3rem',
           }}
         >
