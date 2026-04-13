@@ -522,7 +522,7 @@ export function Hero() {
                   transition: 'color 0.4s ease',
                 }}
               >
-                Avani Srivastava · PM
+                Avani Srivastava
               </span>
             </div>
           </motion.div>

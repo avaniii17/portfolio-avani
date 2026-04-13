@@ -567,7 +567,10 @@ export function Projects() {
                 transition: 'background 0.3s ease',
               }}
             >
-              View Case Study
+              <a href="https://medium.com/@avanisri1411/notion-ai-can-turn-your-handwritten-notes-into-digital-pages-so-why-cant-you-find-the-feature-69e9141cd836"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Case Study</a>
               <ArrowUpRight size={14} />
             </div>
           </div>
