@@ -85,7 +85,6 @@ export function Nav() {
             transition: 'color 0.4s ease, border-color 0.4s ease',
           }}
         >
-          PM
         </span>
       </button>
 

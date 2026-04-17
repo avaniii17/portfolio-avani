@@ -97,245 +97,6 @@ export function Projects() {
           </h2>
         </motion.div>
 
-        {/* PUPA — Flagship PM Project */}
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          whileHover={{ y: -4 }}
-          onClick={() => navigate('/case-study/pupa')}
-          style={{
-            marginBottom: '2rem',
-            borderRadius: '20px',
-            background: isDark ? c.bgCard : c.bgSurface,
-            border: `1px solid ${c.border}`,
-            boxShadow: isDark
-              ? `0 0 0 1px ${c.accent1}20, 0 20px 60px rgba(0,0,0,0.6)`
-              : `0 8px 40px rgba(0,0,0,0.06)`,
-            overflow: 'hidden',
-            transition: 'background 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease',
-            cursor: 'pointer',
-          }}
-        >
-          {/* Top color bar */}
-          <div
-            style={{
-              height: '3px',
-              background: isDark
-                ? `linear-gradient(90deg, ${c.accent1}, ${c.accent3}, ${c.accent2})`
-                : `linear-gradient(90deg, ${c.accent2}, ${c.accent3}, ${c.accent1})`,
-            }}
-          />
-
-          <div style={{ padding: '2.5rem' }}>
-            {/* Badge + Title row */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'flex-start',
-                flexWrap: 'wrap',
-                gap: '1rem',
-                marginBottom: '1.5rem',
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '4px 12px',
-                    borderRadius: '999px',
-                    background: isDark ? `${c.accent1}15` : `${c.accent3}50`,
-                    border: `1px solid ${isDark ? c.accent1 : c.accent3}`,
-                    marginBottom: '1rem',
-                  }}
-                >
-                  <Brain size={11} color={isDark ? c.accent1 : '#2D9469'} />
-                  <span
-                    style={{
-                      fontFamily: 'Space Mono',
-                      fontSize: '0.62rem',
-                      letterSpacing: '0.12em',
-                      textTransform: 'uppercase',
-                      color: isDark ? c.accent1 : '#2D9469',
-                    }}
-                  >
-                    Flagship PM Project · Jan 2024–Present
-                  </span>
-                </div>
-                <h3
-                  style={{
-                    fontFamily: 'Space Grotesk',
-                    fontSize: '2rem',
-                    fontWeight: 700,
-                    letterSpacing: '-0.03em',
-                    color: c.text,
-                    lineHeight: 1,
-                    marginBottom: '0.4rem',
-                    transition: 'color 0.4s ease',
-                  }}
-                >
-                  PUPA
-                </h3>
-                <p
-                  style={{
-                    fontFamily: 'Inter',
-                    fontSize: '0.9rem',
-                    color: c.textMuted,
-                    transition: 'color 0.4s ease',
-                  }}
-                >
-                  Mental Health Tech Platform · Own Startup
-                </p>
-              </div>
-
-              <div
-                style={{
-                  fontFamily: 'Space Mono',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: isDark ? c.accent5 : c.textMuted,
-                  border: `1px solid ${isDark ? c.accent5 : c.borderStrong}`,
-                  padding: '6px 14px',
-                  borderRadius: '8px',
-                  whiteSpace: 'nowrap',
-                  alignSelf: 'flex-start',
-                }}
-              >
-                Founder & Product Lead
-              </div>
-            </div>
-
-            {/* Description */}
-            <p
-              style={{
-                fontFamily: 'Inter',
-                fontSize: '0.95rem',
-                lineHeight: 1.75,
-                color: c.textMuted,
-                maxWidth: '640px',
-                marginBottom: '2rem',
-                transition: 'color 0.4s ease',
-              }}
-            >
-              Bridging the gap between mental health care and accessible technology. Led end-to-end
-              product discovery for a digital mental wellness platform — from zero to a validated MVP
-              strategy backed by deep qualitative research.
-            </p>
-
-            {/* PM Process */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-                gap: '1rem',
-                marginBottom: '2rem',
-              }}
-            >
-              {[
-                {
-                  icon: <FileSearch size={16} color={isDark ? c.accent1 : '#7C3AED'} />,
-                  title: 'Discovery',
-                  desc: 'Synthesised 70+ user interviews into 3 distinct stress-point personas',
-                  color: isDark ? c.accent1 : '#7C3AED',
-                },
-                {
-                  icon: <TrendingUp size={16} color={isDark ? c.accent3 : '#059669'} />,
-                  title: 'Prioritisation',
-                  desc: 'Priority matrix balancing technical feasibility with user impact',
-                  color: isDark ? c.accent3 : '#059669',
-                },
-                {
-                  icon: <Users size={16} color={isDark ? c.accent2 : '#DB2777'} />,
-                  title: 'Stakeholders',
-                  desc: 'Collaborated with 20+ therapists on clinical workflows & legal standards',
-                  color: isDark ? c.accent2 : '#DB2777',
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  style={{
-                    padding: '1.2rem',
-                    borderRadius: '12px',
-                    background: isDark ? '#ffffff04' : '#00000004',
-                    border: `1px solid ${c.border}`,
-                    transition: 'background 0.4s ease',
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      marginBottom: '0.6rem',
-                    }}
-                  >
-                    {item.icon}
-                    <span
-                      style={{
-                        fontFamily: 'Space Grotesk',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        letterSpacing: '0.06em',
-                        textTransform: 'uppercase',
-                        color: item.color,
-                      }}
-                    >
-                      {item.title}
-                    </span>
-                  </div>
-                  <p
-                    style={{
-                      fontFamily: 'Inter',
-                      fontSize: '0.8rem',
-                      lineHeight: 1.6,
-                      color: c.textMuted,
-                      transition: 'color 0.4s ease',
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Tags */}
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.75rem' }}>
-              {['User Research', 'Persona Synthesis', 'MVP Scoping', 'Priority Matrix', 'Stakeholder Management', 'Mental Health'].map(
-                (tag, i) => (
-                  <Tag key={tag} label={tag} color={tagColors[i % tagColors.length]} isDark={isDark} />
-                )
-              )}
-            </div>
-
-            {/* View Case Study Button */}
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
-                borderRadius: '10px',
-                border: `1px solid ${isDark ? c.accent1 : c.accent2}`,
-                background: isDark ? `${c.accent1}12` : `${c.accent2}12`,
-                fontFamily: 'Space Mono',
-                fontSize: '0.7rem',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: isDark ? c.accent1 : c.accent2,
-                transition: 'background 0.3s ease',
-              }}
-            >
-              View Case Study
-              <ArrowUpRight size={14} />
-            </div>
-          </div>
-        </motion.div>
-
         {/* Notion AI Case Study */}
         <motion.div
           variants={sectionVariants}
@@ -568,6 +329,247 @@ export function Projects() {
               }}
             >
               <a href="https://medium.com/@avanisri1411/notion-ai-can-turn-your-handwritten-notes-into-digital-pages-so-why-cant-you-find-the-feature-69e9141cd836"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Case Study</a>
+              <ArrowUpRight size={14} />
+            </div>
+          </div>
+        </motion.div>
+        {/* PUPA — Flagship PM Project */}
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          whileHover={{ y: -4 }}
+          onClick={() => navigate('/case-study/pupa')}
+          style={{
+            marginBottom: '2rem',
+            borderRadius: '20px',
+            background: isDark ? c.bgCard : c.bgSurface,
+            border: `1px solid ${c.border}`,
+            boxShadow: isDark
+              ? `0 0 0 1px ${c.accent1}20, 0 20px 60px rgba(0,0,0,0.6)`
+              : `0 8px 40px rgba(0,0,0,0.06)`,
+            overflow: 'hidden',
+            transition: 'background 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease',
+            cursor: 'pointer',
+          }}
+        >
+          {/* Top color bar */}
+          <div
+            style={{
+              height: '3px',
+              background: isDark
+                ? `linear-gradient(90deg, ${c.accent1}, ${c.accent3}, ${c.accent2})`
+                : `linear-gradient(90deg, ${c.accent2}, ${c.accent3}, ${c.accent1})`,
+            }}
+          />
+
+          <div style={{ padding: '2.5rem' }}>
+            {/* Badge + Title row */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'flex-start',
+                flexWrap: 'wrap',
+                gap: '1rem',
+                marginBottom: '1.5rem',
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '4px 12px',
+                    borderRadius: '999px',
+                    background: isDark ? `${c.accent1}15` : `${c.accent3}50`,
+                    border: `1px solid ${isDark ? c.accent1 : c.accent3}`,
+                    marginBottom: '1rem',
+                  }}
+                >
+                  <Brain size={11} color={isDark ? c.accent1 : '#2D9469'} />
+                  <span
+                    style={{
+                      fontFamily: 'Space Mono',
+                      fontSize: '0.62rem',
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: isDark ? c.accent1 : '#2D9469',
+                    }}
+                  >
+                    Flagship Product managment Case Study
+                  </span>
+                </div>
+                <h3
+                  style={{
+                    fontFamily: 'Space Grotesk',
+                    fontSize: '2rem',
+                    fontWeight: 700,
+                    letterSpacing: '-0.03em',
+                    color: c.text,
+                    lineHeight: 1,
+                    marginBottom: '0.4rem',
+                    transition: 'color 0.4s ease',
+                  }}
+                >
+                  PUPA
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'Inter',
+                    fontSize: '0.9rem',
+                    color: c.textMuted,
+                    transition: 'color 0.4s ease',
+                  }}
+                >
+                  Mental Health Tech Platform · Own Startup
+                </p>
+              </div>
+
+              <div
+                style={{
+                  fontFamily: 'Space Mono',
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: isDark ? c.accent5 : c.textMuted,
+                  border: `1px solid ${isDark ? c.accent5 : c.borderStrong}`,
+                  padding: '6px 14px',
+                  borderRadius: '8px',
+                  whiteSpace: 'nowrap',
+                  alignSelf: 'flex-start',
+                }}
+              >
+                Product Lead
+              </div>
+            </div>
+
+            {/* Description */}
+            <p
+              style={{
+                fontFamily: 'Inter',
+                fontSize: '0.95rem',
+                lineHeight: 1.75,
+                color: c.textMuted,
+                maxWidth: '640px',
+                marginBottom: '2rem',
+                transition: 'color 0.4s ease',
+              }}
+            >
+              Bridging the gap between mental health care and accessible technology. Led end-to-end
+              product discovery for a digital mental wellness platform — from zero to a validated MVP
+              strategy backed by deep qualitative research.
+            </p>
+
+            {/* PM Process */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '1rem',
+                marginBottom: '2rem',
+              }}
+            >
+              {[
+                {
+                  icon: <FileSearch size={16} color={isDark ? c.accent1 : '#7C3AED'} />,
+                  title: 'Discovery',
+                  desc: 'Synthesised 70+ user interviews into 3 distinct stress-point personas',
+                  color: isDark ? c.accent1 : '#7C3AED',
+                },
+                {
+                  icon: <TrendingUp size={16} color={isDark ? c.accent3 : '#059669'} />,
+                  title: 'Prioritisation',
+                  desc: 'Priority matrix balancing technical feasibility with user impact',
+                  color: isDark ? c.accent3 : '#059669',
+                },
+                {
+                  icon: <Users size={16} color={isDark ? c.accent2 : '#DB2777'} />,
+                  title: 'Stakeholders',
+                  desc: 'Collaborated with 20+ therapists on clinical workflows & legal standards',
+                  color: isDark ? c.accent2 : '#DB2777',
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  style={{
+                    padding: '1.2rem',
+                    borderRadius: '12px',
+                    background: isDark ? '#ffffff04' : '#00000004',
+                    border: `1px solid ${c.border}`,
+                    transition: 'background 0.4s ease',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      marginBottom: '0.6rem',
+                    }}
+                  >
+                    {item.icon}
+                    <span
+                      style={{
+                        fontFamily: 'Space Grotesk',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        color: item.color,
+                      }}
+                    >
+                      {item.title}
+                    </span>
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: 'Inter',
+                      fontSize: '0.8rem',
+                      lineHeight: 1.6,
+                      color: c.textMuted,
+                      transition: 'color 0.4s ease',
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.75rem' }}>
+              {['User Research', 'Persona Synthesis', 'MVP Scoping', 'Priority Matrix', 'Stakeholder Management', 'Mental Health'].map(
+                (tag, i) => (
+                  <Tag key={tag} label={tag} color={tagColors[i % tagColors.length]} isDark={isDark} />
+                )
+              )}
+            </div>
+
+            {/* View Case Study Button */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '10px 20px',
+                borderRadius: '10px',
+                border: `1px solid ${isDark ? c.accent1 : c.accent2}`,
+                background: isDark ? `${c.accent1}12` : `${c.accent2}12`,
+                fontFamily: 'Space Mono',
+                fontSize: '0.7rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: isDark ? c.accent1 : c.accent2,
+                transition: 'background 0.3s ease',
+              }}
+            >
+              <a href="https://medium.com/@avanisri1411/pupa-a-safe-cocoon-for-students-who-dont-know-where-to-go-for-their-mental-health-ca445e14848d"
                 target="_blank"
                 rel="noopener noreferrer">
                 View Case Study</a>

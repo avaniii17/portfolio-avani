@@ -7,9 +7,8 @@ import avaniPhoto from '../../assets/avani-photo.png';
 const roles = ['Product Manager', 'User Researcher', 'Strategic Thinker', 'Problem Solver'];
 
 const stats = [
-  { value: '70+', label: 'User Interviews' },
-  { value: '3', label: 'User Personas' },
-  { value: '20+', label: 'Therapist Partners' },
+  { value: '60+', label: 'User Interviews' },
+  { value: '2', label: 'User Personas' },
   { value: '25%', label: 'Engagement Boost' },
 ];
 
@@ -529,52 +528,52 @@ export function Hero() {
 
           {/* Floating accent badge — hidden on mobile to avoid overflow */}
           {!isMobile && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.5, ease: 'easeOut' }}
-            style={{
-              position: 'absolute',
-              top: '12%',
-              right: '-20px',
-              background: isDark ? c.bgCard : c.bgSurface,
-              border: `1px solid ${isDark ? c.accent2 + '50' : c.accent2}`,
-              borderRadius: '12px',
-              padding: '10px 14px',
-              boxShadow: isDark ? `0 0 20px ${c.accent2}20` : c.shadowCard,
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              transition: 'background 0.4s ease, border-color 0.4s ease',
-            }}
-          >
-            <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent2 : '#7C3AED', lineHeight: 1, marginBottom: '3px' }}>NIT</div>
-            <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Hamirpur</div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.5, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                top: '12%',
+                right: '-20px',
+                background: isDark ? c.bgCard : c.bgSurface,
+                border: `1px solid ${isDark ? c.accent2 + '50' : c.accent2}`,
+                borderRadius: '12px',
+                padding: '10px 14px',
+                boxShadow: isDark ? `0 0 20px ${c.accent2}20` : c.shadowCard,
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                transition: 'background 0.4s ease, border-color 0.4s ease',
+              }}
+            >
+              <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent2 : '#7C3AED', lineHeight: 1, marginBottom: '3px' }}>NIT</div>
+              <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Hamirpur</div>
+            </motion.div>
           )}
 
           {/* Floating accent badge 2 — hidden on mobile */}
           {!isMobile && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.5, ease: 'easeOut' }}
-            style={{
-              position: 'absolute',
-              bottom: '18%',
-              left: '-22px',
-              background: isDark ? c.bgCard : c.bgSurface,
-              border: `1px solid ${isDark ? c.accent3 + '50' : c.accent3}`,
-              borderRadius: '12px',
-              padding: '10px 14px',
-              boxShadow: isDark ? `0 0 20px ${c.accent3}20` : c.shadowCard,
-              backdropFilter: 'blur(8px)',
-              WebkitBackdropFilter: 'blur(8px)',
-              transition: 'background 0.4s ease, border-color 0.4s ease',
-            }}
-          >
-            <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent3 : '#059669', lineHeight: 1, marginBottom: '3px' }}>'26</div>
-            <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Grad</div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.5, ease: 'easeOut' }}
+              style={{
+                position: 'absolute',
+                bottom: '18%',
+                left: '-22px',
+                background: isDark ? c.bgCard : c.bgSurface,
+                border: `1px solid ${isDark ? c.accent3 + '50' : c.accent3}`,
+                borderRadius: '12px',
+                padding: '10px 14px',
+                boxShadow: isDark ? `0 0 20px ${c.accent3}20` : c.shadowCard,
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                transition: 'background 0.4s ease, border-color 0.4s ease',
+              }}
+            >
+              <div style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', fontWeight: 700, color: isDark ? c.accent3 : '#059669', lineHeight: 1, marginBottom: '3px' }}>'26</div>
+              <div style={{ fontFamily: 'Space Mono', fontSize: '0.55rem', letterSpacing: '0.06em', color: c.textMuted, textTransform: 'uppercase' }}>Grad</div>
+            </motion.div>
           )}
         </motion.div>
       </div>
