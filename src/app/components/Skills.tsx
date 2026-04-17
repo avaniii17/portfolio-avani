@@ -46,6 +46,7 @@ const skillGroups = [
       'JavaScript',
       'Firebase',
       'Microsoft Excel',
+      'Jira',
       'Data Modelling',
       'PowerPoint Storytelling',
     ],
